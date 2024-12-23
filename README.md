@@ -35,6 +35,10 @@ This project involves designing and implementing a **Smart Reactive Audio-Visual
 
 ---
 
+## System OverView
+![System_OverView](https://github.com/HanaNabhan/Smart-Reactive-Audio-Visual-System/blob/main/Audio_system.png)
+![System_OverView](https://github.com/HanaNabhan/Smart-Reactive-Audio-Visual-System/blob/main/Audio_system%20(2).png)
+---
 ## Functional Description
 ### 1. **Sound Intensity Measurement**
 - The microphone/audio sensor converts sound intensity into an analog signal.
