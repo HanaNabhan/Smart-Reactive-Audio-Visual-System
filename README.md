@@ -104,9 +104,8 @@ This project involves designing and implementing a **Smart Reactive Audio-Visual
 ---
 
 ## Development Environment
-- **IDE**: Code Composer Studio (CCS)
+- **IDE**: KEIL
 - **Programming Language**: C
-- **Debugging Tools**: UART terminal (e.g., PuTTY)
 - **Hardware Drivers**: TivaWare Peripheral Driver Library
 
 ---
