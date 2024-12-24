@@ -20,7 +20,6 @@ This project involves designing and implementing a **Smart Reactive Audio-Visual
   - **Switch 2**: Toggles the LCD display.
 - LCD displays real-time sound intensity values.
 - Efficient use of **interrupts** and **timers** to manage tasks.
-- Integration of **UART** for debugging and communication.
 
 ---
 
