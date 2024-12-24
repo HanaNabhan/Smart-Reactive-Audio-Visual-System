@@ -1,0 +1,59 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Keil\Labware\FinalProject\Lab2.uvproj
+Project File Date:  10/14/2024
+
+<h2>Output:</h2>
+Build target 'HelloLaunchPad'
+compiling main.c...
+timer.h(10): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c: 1 warning, 0 errors
+linking...
+Program Size: Code=5332 RO-data=2112 RW-data=80 ZI-data=1752  
+".\HelloLaunchPad.axf" - 0 Error(s), 1 Warning(s).
+Load "C:\\Keil\\Labware\\FinalProject\\HelloLaunchPad.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+Labware\\FinalProject\\HelloLaunchPad.axf" 
+Connecting: Mode=JTAG, Speed=1000000Hz
+Erase Done.
+Programming Done.
+Verify OK.
+K.
+ly defined (by timer.o and lcd.o).
+.\HelloLaunchPad.axf: Error: L6200E: Symbol Timer2_Ticks multiply defined (by timer.o and lcd.o).
+.\HelloLaunchPad.axf: Error: L6200E: Symbol delay multiply defined (by timer.o and lcd.o).
+Not enough information to list image symbols.
+Not enough information to list the image map.
+Finished: 2 information, 0 warning and 5 error messages.
+".\HelloLaunchPad.axf" - 5 Error(s), 2 Warning(s).
+Target not created
+led  -  Could not load file 'C:\Keil\Labware\FinalProject\HelloLaunchPad.axf'
+      // Bus clock resolution
+timer.c(25): error:  #20: identifier "TIMER2_ICR_R" is undefined
+      TIMER2_ICR_R = 0x00000001;    // Clear timer2A timeout flag
+timer.c(26): error:  #20: identifier "TIMER2_IMR_R" is undefined
+      TIMER2_IMR_R = 0x00000001;    // Arm timeout interrupt
+timer.c(27): error:  #20: identifier "NVIC_PRI5_R" is undefined
+      NVIC_PRI5_R = (NVIC_PRI5_R & 0x00FFFFFF) | 0x80000000; // Set priority
+timer.c(28): error:  #20: identifier "NVIC_EN0_R" is undefined
+      NVIC_EN0_R = 1 << 23;         // Enable IRQ 23 in NVIC
+timer.c(36): error:  #20: identifier "TIMER2_ICR_R" is undefined
+    TIMER2_ICR_R = 0x00000001;   // Acknowledge timer2A timeout
+timer.c(56): warning:  #1-D: last line of file ends without a newline
+  }
+timer.c: 2 warnings, 11 errors
+".\HelloLaunchPad.axf" - 12 Error(s), 3 Warning(s).
+Target not created
+owledge timer2A timeout
+timer.c(56): warning:  #1-D: last line of file ends without a newline
+  }
+timer.c: 2 warnings, 11 errors
+".\HelloLaunchPad.axf" - 12 Error(s), 4 Warning(s).
+Target not created

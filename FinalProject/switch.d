@@ -1,0 +1,10 @@
+.\switch.o: switch.c
+.\switch.o: GPIO.h
+.\switch.o: ..\TM4C123GH6PM.h
+.\switch.o: C:\Keil\ARM\CMSIS\Include\core_cm4.h
+.\switch.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+.\switch.o: C:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\switch.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\switch.o: C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h
+.\switch.o: ..\system_TM4C123.h
+.\switch.o: switch.h
