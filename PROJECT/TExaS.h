@@ -21,14 +21,6 @@
  http://users.ece.utexas.edu/~valvano/
  */
 
-// IMPORTANT: These enumerated types are specific to Lab 2 and should NOT be changed.
-enum InputPorts{
-  SW_PIN_PF40 = 5
-};
-
-enum OutputPorts{
-  LED_PIN_PF321 = 5
-};
 
 // ************TExaS_Init*****************
 // Initialize grader, triggered by timer 5A
@@ -36,7 +28,7 @@ enum OutputPorts{
 // Inputs: iport input(s) connected to this port
 //         oport output(s) connected to this port
 // Outputs: none
-void TExaS_Init(enum InputPorts iport, enum OutputPorts oport);
+void TExaS_Init(void);
 
 // ************TExaS_Stop*****************
 // Stop the transfer 

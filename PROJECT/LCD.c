@@ -1,99 +1,145 @@
 #include "TM4C123GH6PM.h"
-
 #include "LCD.h"
 #include "GPIO.h"
+#include "timer.h"
 
-#define RS_PIN  2 // PA2
-#define EN_PIN  3 // PA3
-#define D4_PIN  4 // PA4
-#define D5_PIN  5 // PA5
-#define D6_PIN  6 // PA6
-#define D7_PIN  7 // PA7
+#define LCD_PORT 1       // Port B index in GPIO_PORTS array
+#define RS 0             // RS 
+#define RW 1             // RW 
+#define EN 2             // EN 
 
-#define PORT_A  0
+// LCD Commands
+#define FOUR_BIT_COM 0x28
+#define CLRCOM 0x01
+#define DISPLAYON_CURSOROFF_COM 0x0C
+#define MOVE_2RIGHT_COM 0x06
+#define FIRST_ROW_COM 0x80
+#define SECOND_ROW_COM 0xC0
+#define RETURN_HOME 0X02
 
-// Send a command to the LCD
-void LCD_command(unsigned char cmd) {
-    // Send upper nibble
-    GPIO_WritePin(PORT_A, RS_PIN, 0);               // RS = 0 (command mode)
-    GPIO_WritePin(PORT_A, D4_PIN, (cmd >> 4) & 0x1);
-    GPIO_WritePin(PORT_A, D5_PIN, (cmd >> 5) & 0x1);
-    GPIO_WritePin(PORT_A, D6_PIN, (cmd >> 6) & 0x1);
-    GPIO_WritePin(PORT_A, D7_PIN, (cmd >> 7) & 0x1);
-    GPIO_WritePin(PORT_A, EN_PIN, 1);               // Pulse EN
-    delayMs(1);
-    GPIO_WritePin(PORT_A, EN_PIN, 0);
+
+int pin ;
+int k;
+// Function to enable the LCD (generate enable pulse)
+static void Enable(void) {
+    GPIO_WritePin(LCD_PORT, EN, 1);
+    delayUs(10); // Short delay to latch data
+    GPIO_WritePin(LCD_PORT, EN, 0);
+    delayUs(10);
+}
+
+// Initialize LCD in 4-bit mode
+void LCD4bits_Init(void) {
+    // Initialize control pins (RS, RW, EN)
+    GPIO_Init(LCD_PORT, RS, OUTPUT, DIGITAL);
+    GPIO_Init(LCD_PORT, RW, OUTPUT, DIGITAL);
+    GPIO_Init(LCD_PORT, EN, OUTPUT, DIGITAL);
+    // Initialize data pins (D4-D7)
+    for (pin = 4; pin <= 7; pin++) {
+        GPIO_Init(LCD_PORT, pin, OUTPUT, DIGITAL);
+    }
+
+    delayMs(20); // Wait for the LCD to power up
+    LCD4bits_Cmd(RETURN_HOME);
+    LCD4bits_Cmd(FOUR_BIT_COM); // 4-bit mode, 2-line display, 5x7 font
+    LCD4bits_Cmd(DISPLAYON_CURSOROFF_COM); // Display on, cursor off
+    LCD4bits_Cmd(CLRCOM); // Clear display
+    LCD4bits_Cmd(MOVE_2RIGHT_COM); // Entry mode set: shift cursor to right
+}
+
+// Send command to LCD in 4-bit mode
+void LCD4bits_Cmd(unsigned char command) {
+    GPIO_WritePin(LCD_PORT, RS, 0); // Command mode
+    GPIO_WritePin(LCD_PORT, RW, 0); // Write mode
+
+    // Send higher nibble
+    for ( k = 0; k < 4; k++) {
+        GPIO_WritePin(LCD_PORT, 4 + k, (command >> (4 + k)) & 0x01);
+    }
+    Enable();
 
     // Send lower nibble
-    GPIO_WritePin(PORT_A, D4_PIN, cmd & 0x1);
-    GPIO_WritePin(PORT_A, D5_PIN, (cmd >> 1) & 0x1);
-    GPIO_WritePin(PORT_A, D6_PIN, (cmd >> 2) & 0x1);
-    GPIO_WritePin(PORT_A, D7_PIN, (cmd >> 3) & 0x1);
-    GPIO_WritePin(PORT_A, EN_PIN, 1);               // Pulse EN
-    delayMs(1);
-    GPIO_WritePin(PORT_A, EN_PIN, 0);
+    for (k = 0; k < 4; k++) {
+        GPIO_WritePin(LCD_PORT, 4 + k, (command >> k) & 0x01);
+    }
+    Enable();
 
-    delayMs(2); // Command execution time
+   
+        delayMs(2); // Long delay for clear/home commands
+   
 }
 
-// Send data to the LCD
-void LCD_data(char data) {
-    // Send upper nibble
-    GPIO_WritePin(PORT_A, RS_PIN, 1);               // RS = 1 (data mode)
-    GPIO_WritePin(PORT_A, D4_PIN, (data >> 4) & 0x1);
-    GPIO_WritePin(PORT_A, D5_PIN, (data >> 5) & 0x1);
-    GPIO_WritePin(PORT_A, D6_PIN, (data >> 6) & 0x1);
-    GPIO_WritePin(PORT_A, D7_PIN, (data >> 7) & 0x1);
-    GPIO_WritePin(PORT_A, EN_PIN, 1);               // Pulse EN
-    delayMs(1);
-    GPIO_WritePin(PORT_A, EN_PIN, 0);
+// Send data (character) to LCD in 4-bit mode
+void LCD4bits_Data(int data) {
+    GPIO_WritePin(LCD_PORT, RS, 1); // Data mode
+    GPIO_WritePin(LCD_PORT, RW, 0); // Write mode
+
+    // Send higher nibble
+   // Higher nibble
+for (k = 0; k < 4; k++) {
+    GPIO_WritePin(LCD_PORT, 4 + k, (data >> (4 + k )) & 0x01);
+}
+
+
+    Enable();
 
     // Send lower nibble
-    GPIO_WritePin(PORT_A, D4_PIN, data & 0x1);
-    GPIO_WritePin(PORT_A, D5_PIN, (data >> 1) & 0x1);
-    GPIO_WritePin(PORT_A, D6_PIN, (data >> 2) & 0x1);
-    GPIO_WritePin(PORT_A, D7_PIN, (data >> 3) & 0x1);
-    GPIO_WritePin(PORT_A, EN_PIN, 1);               // Pulse EN
-    delayMs(1);
-    GPIO_WritePin(PORT_A, EN_PIN, 0);
-
-    delayMs(2); // Data write time
+    // Lower nibble
+for (k = 0; k < 4; k++) {
+    GPIO_WritePin(LCD_PORT, 4 + k, (data >> k) & 0x01);
 }
 
-// Initialize the LCD
-void LCD_init(void) {
-    // Configure GPIO pins as outputs
-    GPIO_Init(PORT_A, RS_PIN, OUTPUT, DIGITAL);
-    GPIO_Init(PORT_A, EN_PIN, OUTPUT, DIGITAL);
-    GPIO_Init(PORT_A, D4_PIN, OUTPUT, DIGITAL);
-    GPIO_Init(PORT_A, D5_PIN, OUTPUT, DIGITAL);
-    GPIO_Init(PORT_A, D6_PIN, OUTPUT, DIGITAL);
-    GPIO_Init(PORT_A, D7_PIN, OUTPUT, DIGITAL);
+    Enable();
 
-    delayMs(20); // Wait for LCD to power up
-    LCD_command(0x02);  // Initialize in 4-bit mode
-    LCD_command(0x28);  // 4-bit mode, 2 lines, 5x7 font
-    LCD_command(0x06);  // Auto-increment cursor
-    LCD_command(0x0C);  // Display on, cursor off
-    LCD_command(0x01);  // Clear display
-    delayMs(2);
+    delayMs(20); // Short delay for data execution
 }
 
-// Write a string to the LCD
-void LCD_writeString(char* str) {
-    while (*str) {
-        LCD_data(*str++);
+// Clear LCD display
+void LCD_vCLR(void) {
+    LCD4bits_Cmd(CLRCOM);
+    delayMs(10); // Delay for clear command
+}
+
+// Move cursor to specified position and display string
+
+
+// Move cursor to specified row and column
+void LCD_vMoveCursor(char row, char column) {
+    unsigned char address;
+
+    if((row>2)||(row<1)||(column<1)||(column>16)){
+		address=FIRST_ROW_COM;
+	}
+	else if(row==1){
+		address=FIRST_ROW_COM+column-1;
+	}
+	else if(row==2){
+		address=SECOND_ROW_COM+column-1;
+	}
+	else{
+		
+	}
+
+    LCD4bits_Cmd(address);
+}
+
+// Write string to LCD
+void LCD_WriteString(char *str) {
+		
+    while (*str!=0) {
+        LCD4bits_Data(*str);
+			str++;
     }
 }
 
-// Simple delay in milliseconds
-void delayMs(int delay) {
+void delayMs(int n) {
     volatile int i, j;
-    for (i = 0; i < delay; i++) {
-        for (j = 0; j < 3180; j++) {
-            // Do nothing
-        }
-    }
+    for (i = 0; i < n; i++)
+        for (j = 0; j < 3180; j++);
 }
 
-
+void delayUs(int n) {
+    volatile int i, j;
+    for (i = 0; i < n; i++)
+        for (j = 0; j < 3; j++);
+}

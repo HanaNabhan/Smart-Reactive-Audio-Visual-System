@@ -8,3 +8,4 @@
 .\lcd.o: ..\system_TM4C123.h
 .\lcd.o: LCD.h
 .\lcd.o: GPIO.h
+.\lcd.o: timer.h

@@ -7,6 +7,11 @@
 .\main.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
 .\main.o: C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h
 .\main.o: ..\system_TM4C123.h
-.\main.o: TExaS.h
-.\main.o: switch.h
+.\main.o: LCD.h
 .\main.o: LED.h
+.\main.o: switch.h
+.\main.o: timer.h
+.\main.o: ADC.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
+.\main.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+.\main.o: TExaS.h

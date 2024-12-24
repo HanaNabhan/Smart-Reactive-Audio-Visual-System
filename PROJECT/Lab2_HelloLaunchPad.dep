@@ -1,6 +1,6 @@
 Dependencies for Project 'Lab2', Target 'HelloLaunchPad': (DO NOT MODIFY !)
-F (.\main.c)(0x6759DF2B)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\main.o --omf_browse .\main.crf --depend .\main.d)
-I (GPIO.h)(0x6759DF9B)
+F (.\main.c)(0x67695F69)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (GPIO.h)(0x675E491C)
 I (..\TM4C123GH6PM.h)(0x532C3A68)
 I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C3E12)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7FD94)
@@ -8,12 +8,20 @@ I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532C3E12)
 I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532C3E12)
 I (C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C3E12)
 I (..\system_TM4C123.h)(0x532C3A68)
-I (TExaS.h)(0x56992F14)
-I (switch.h)(0x6759D6F0)
-I (LED.h)(0x6759DFB5)
+I (LCD.h)(0x67658333)
+I (LED.h)(0x675CC258)
+I (switch.h)(0x675CC268)
+I (timer.h)(0x6768C768)
+I (ADC.h)(0x6768809C)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7FD94)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7FD94)
+I (TExaS.h)(0x67694216)
 F (.\startup.s)(0x5299E74C)(--cpu Cortex-M4 --pd "__RTX SETA 1" --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary--list .\startup.lst --xref -o .\startup.o --depend .\startup.d)
-F (.\GPIO.c)(0x6759DF22)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\gpio.o --omf_browse .\gpio.crf --depend .\gpio.d)
-I (GPIO.h)(0x6759DF9B)
+F (.\ADC.c)(0x67694F01)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\adc.o --omf_browse .\adc.crf --depend .\adc.d)
+I (tm4c123gh6pm_11.h)(0x51D42A62)
+I (ADC.h)(0x6768809C)
+F (.\GPIO.c)(0x6769559C)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\gpio.o --omf_browse .\gpio.crf --depend .\gpio.d)
+I (GPIO.h)(0x675E491C)
 I (..\TM4C123GH6PM.h)(0x532C3A68)
 I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C3E12)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7FD94)
@@ -21,10 +29,7 @@ I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532C3E12)
 I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532C3E12)
 I (C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C3E12)
 I (..\system_TM4C123.h)(0x532C3A68)
-F (.\GPIO.h)(0x6759DF9B)()
-F (..\TM4C123GH6PM.h)(0x532C3A68)()
-F (..\system_TM4C123.h)(0x532C3A68)()
-F (.\LCD.c)(0x6759C444)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\lcd.o --omf_browse .\lcd.crf --depend .\lcd.d)
+F (.\LCD.c)(0x67695D93)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\lcd.o --omf_browse .\lcd.crf --depend .\lcd.d)
 I (..\TM4C123GH6PM.h)(0x532C3A68)
 I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C3E12)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7FD94)
@@ -32,12 +37,12 @@ I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532C3E12)
 I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532C3E12)
 I (C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C3E12)
 I (..\system_TM4C123.h)(0x532C3A68)
-I (LCD.h)(0x6759D58D)
-I (GPIO.h)(0x6759DF9B)
-F (.\LCD.h)(0x6759D58D)()
-F (.\switch.c)(0x6759DCFD)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\switch.o --omf_browse .\switch.crf --depend .\switch.d)
-I (GPIO.h)(0x6759DF9B)
-I (switch.h)(0x6759D6F0)
+I (LCD.h)(0x67658333)
+I (GPIO.h)(0x675E491C)
+I (timer.h)(0x6768C768)
+F (.\LED.c)(0x675CC254)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\led.o --omf_browse .\led.crf --depend .\led.d)
+I (LED.h)(0x675CC258)
+I (GPIO.h)(0x675E491C)
 I (..\TM4C123GH6PM.h)(0x532C3A68)
 I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C3E12)
 I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7FD94)
@@ -45,9 +50,33 @@ I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532C3E12)
 I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532C3E12)
 I (C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C3E12)
 I (..\system_TM4C123.h)(0x532C3A68)
-F (.\switch.h)(0x6759D6F0)()
-F (.\LED.h)(0x6759DFB5)()
-F (.\LED.c)(0x6759D8CB)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\led.o --omf_browse .\led.crf --depend .\led.d)
-I (LED.h)(0x6759DFB5)
-I (GPIO.h)(0x6759DF9B)
+F (.\switch.c)(0x675CC262)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\switch.o --omf_browse .\switch.crf --depend .\switch.d)
+I (GPIO.h)(0x675E491C)
+I (..\TM4C123GH6PM.h)(0x532C3A68)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C3E12)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7FD94)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532C3E12)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532C3E12)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C3E12)
+I (..\system_TM4C123.h)(0x532C3A68)
+I (switch.h)(0x675CC268)
+F (.\timer.c)(0x67695AE1)(-c --cpu Cortex-M4 -D__RTX -D__EVAL -g -O0 --apcs=interwork --split_sections --signed_chars -I.. -I..\..\..-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\CMSIS\Include-I C:\Keil\ARM\Inc\Luminary-Drvmdk -DPART_LM4F120H5QR-o .\timer.o --omf_browse .\timer.crf --depend .\timer.d)
+I (tm4c123gh6pm_11.h)(0x51D42A62)
+I (GPIO.h)(0x675E491C)
+I (..\TM4C123GH6PM.h)(0x532C3A68)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4.h)(0x532C3E12)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7FD94)
+I (C:\Keil\ARM\CMSIS\Include\core_cmInstr.h)(0x532C3E12)
+I (C:\Keil\ARM\CMSIS\Include\core_cmFunc.h)(0x532C3E12)
+I (C:\Keil\ARM\CMSIS\Include\core_cm4_simd.h)(0x532C3E12)
+I (..\system_TM4C123.h)(0x532C3A68)
+I (TExaS.h)(0x67694216)
+I (timer.h)(0x6768C768)
+F (.\timer.h)(0x6768C768)()
+F (.\switch.h)(0x675CC268)()
+F (.\LCD.h)(0x67658333)()
+F (.\LED.h)(0x675CC258)()
+F (.\GPIO.h)(0x675E491C)()
+F (.\ADC.h)(0x6768809C)()
+F (.\tm4c123gh6pm_11.h)(0x51D42A62)()
 F (.\texas.o)(0x56992F14)()
