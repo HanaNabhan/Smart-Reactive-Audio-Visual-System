@@ -129,7 +129,7 @@ This project involves designing and implementing a **Smart Reactive Audio-Visual
 2. Use **Switch 1** to toggle the LED light strip.
 3. Use **Switch 2** to toggle the LCD display.
 4. Observe the LED strip reacting to sound intensity and the LCD displaying real-time values.
-5. Connect a UART terminal to monitor debug information.
+
 
 ---
 
