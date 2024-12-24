@@ -2,10 +2,14 @@
 
 This project involves designing and implementing a **Smart Reactive Audio-Visual System** using the **Tiva C microcontroller**. The system integrates various hardware peripherals and communication protocols to provide real-time audio and visual feedback. Specifically, the system controls an **LED light strip** that reacts dynamically to sound intensity while also displaying relevant information on an **LCD screen**. Two switches allow the user to control the operation of the LED light strip and the LCD.
 <div style="display: flex; justify-content: space-around;">
-  <img src="RealImages/image1.jpg" alt="Image 1" width="200">
-  <img src="RealImages/img2.jpg" alt="Image 2" width="200">
-  <img src="RealImages/img3.jpg" alt="Image 3" width="200">
-  <img src="RealImages/imgs4.jpg" alt="Image 4" width="200">
+  <img src="RealImages/image1.jpg" alt="Image 1" width="400">
+  <img src="RealImages/img2.jpg" alt="Image 2" width="400">
+ 
+</div>
+<div style="display: flex; justify-content: space-around;">
+
+  <img src="RealImages/img3.jpg" alt="Image 3" width="400">
+  <img src="RealImages/img4.jpg" alt="Image 4" width="400">
 </div>
 
 ## Features
