@@ -61,8 +61,6 @@ This project involves designing and implementing a **Smart Reactive Audio-Visual
 - **Switch 2**: Enables or disables the LCD display.
 - Switches are connected to GPIO pins and handled using **interrupts** for real-time responsiveness.
 
-### 5. **UART Debugging**
-- Sound intensity values and system status can be sent to a computer via UART for debugging and monitoring.
 
 ---
 
@@ -94,9 +92,7 @@ This project involves designing and implementing a **Smart Reactive Audio-Visual
 ### 7. **GPIO**
 - Used for controlling the LED light strip and interfacing with the switches and LCD.
 
-### 8. **UART**
-- Provides serial communication for debugging purposes.
-- Outputs sound intensity values and system status to a terminal.
+
 
 ---
 
